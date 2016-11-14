@@ -1,18 +1,30 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+
 
 class App extends Component {
+  constructor(props){
+    super()
+  }
+
+  handleClick(props){
+    var password = document.getElementById("password").value
+    var confirmation = document.getElementById("confirmation").value
+
+    if(password != confirmation){
+      return alert("Password doesn't match")
+    }else{
+      return alert("Your password worked")
+    }
+  }
+
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div>
+        <h1>Password Match</h1>
+        <p><input type="text" placeholder="Email" id="email"/></p>
+        <p><input type="text" placeholder="Password" id="password"/></p>
+        <p><input type="text" placeholder="Password Confirmation" id="confirmation"/></p>
+        <button onClick={(e) => this.handleClick(e)}>Return</button>
       </div>
     );
   }
